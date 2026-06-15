@@ -399,7 +399,7 @@ The *Weekly Lecture Series on Astrophysics* is an ongoing initiative introducing
 
 ---
 
-## 🔭 February 2025: Sky-Gazing Event with In-House 12-inch Telescope
+## 🔭 February 2025: Sky-Gazing Event with In-House 8-inch Telescope
 
 A sky-gazing session was organized using the department’s in-house 12-inch reflector telescope, giving students a rare opportunity to explore the skies from campus.
 
