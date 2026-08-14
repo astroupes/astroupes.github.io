@@ -19,6 +19,9 @@ The event concluded on a strong note, building a lively academic atmosphere and 
 - Strong collaboration between UPES, Dolphin PG Institute, and invited resource persons.
 - A focused platform for building research interest and scientific exchange in astronomy and astrophysics.
 
+{% assign histar_slides = site.static_files | where_exp: "file", "file.path contains '/assests/images/HiSTAR/'" | sort: "path" %}
+{% assign histar_first = histar_slides | first %}
+
 <div style="display: flex; gap: 24px; align-items: flex-start; margin-top: 24px; flex-wrap: wrap;">
   <div style="flex: 0 0 30%; min-width: 250px; max-width: 360px" class="event-fact-card">
     <strong>Event:</strong> Himalayan School for Training in Astronomy Research (HiSTAR)<br>
@@ -30,7 +33,7 @@ The event concluded on a strong note, building a lively academic atmosphere and 
   <div style="flex: 1 1 520px; max-width: 700px;">
     <div style="width: 100%; max-width: 620px; height: 380px; margin-left: auto; margin-right: auto; position: relative;">
       <div id="histarSlideshow" style="position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 10px;" class="slideshow-container">
-        <img src="assests/images/HiSTAR/Anupam_Bhardwaj.jpg" alt="HiSTAR success story glimpse" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #0b1220; display: block; transition: opacity 0.8s ease-in-out; opacity: 1;" id="histarSlideA">
+        <img src="{{ histar_first.path | relative_url }}" alt="HiSTAR success story glimpse" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #0b1220; display: block; transition: opacity 0.8s ease-in-out; opacity: 1;" id="histarSlideA">
         <img src="" alt="HiSTAR success story glimpse" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #0b1220; display: block; transition: opacity 0.8s ease-in-out; opacity: 0;" id="histarSlideB">
         <button onclick="prevHistarSlide()" aria-label="Previous Slide" class="slideshow-btn" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; border-radius: 50%; width: 34px; height: 34px; cursor: pointer;">&#8592;</button>
         <button onclick="nextHistarSlide()" aria-label="Next Slide" class="slideshow-btn" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; border-radius: 50%; width: 34px; height: 34px; cursor: pointer;">&#8594;</button>
@@ -42,19 +45,9 @@ The event concluded on a strong note, building a lively academic atmosphere and 
 
 <script>
   const histarImages = [
-    "assests/images/HiSTAR/Anupam_Bhardwaj.jpg",
-    "assests/images/HiSTAR/aasheesh_raturi.jpg",
-    "assests/images/HiSTAR/arka.jpeg",
-    "assests/images/HiSTAR/balendra.jpeg",
-    "assests/images/HiSTAR/BJoshi.jpg",
-    "assests/images/HiSTAR/hemwati.png",
-    "assests/images/HiSTAR/hum_chand.png",
-    "assests/images/HiSTAR/kaushal.png",
-    "assests/images/HiSTAR/nitesh.jpeg",
-    "assests/images/HiSTAR/nitesh_1.jpg",
-    "assests/images/HiSTAR/prince.png",
-    "assests/images/HiSTAR/rawat.png",
-    "assests/images/HiSTAR/susmita.png"
+    {% for file in histar_slides %}
+    "{{ file.path | relative_url }}"{% unless forloop.last %},{% endunless %}
+    {% endfor %}
   ];
 
   let histarIndex = 0;
@@ -80,11 +73,13 @@ The event concluded on a strong note, building a lively academic atmosphere and 
   }
 
   function prevHistarSlide() {
+    if (!histarImages.length) return;
     histarIndex = (histarIndex - 1 + histarImages.length) % histarImages.length;
     showHistarSlide(histarIndex);
   }
 
   function nextHistarSlide() {
+    if (!histarImages.length) return;
     histarIndex = (histarIndex + 1) % histarImages.length;
     showHistarSlide(histarIndex);
   }
@@ -96,9 +91,11 @@ The event concluded on a strong note, building a lively academic atmosphere and 
     }
   });
 
-  setInterval(() => {
-    nextHistarSlide();
-  }, 3800);
+  if (histarImages.length > 1) {
+    setInterval(() => {
+      nextHistarSlide();
+    }, 3800);
+  }
 </script>
 
 <br>
