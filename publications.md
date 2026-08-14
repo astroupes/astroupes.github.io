@@ -7,6 +7,12 @@ title: Publications
 
 <!-- ## 2025 -->
 <!-- - *"Stellar Classification Using Machine Learning"* - Published in MNRAS, 2025. -->
+
+## 2026
+- *"A multiband photometric study of RR Lyrae stars in M53 (NGC 5024)"*, Gaur, S. A., Kumar, N., Bhardwaj, A., Raturi, A., *New Astronomy*. DOI: <a href="https://doi.org/10.1016/j.newast.2025.102515" target="_blank" rel="noopener noreferrer" style="color: blue; text-decoration: underline;">10.1016/j.newast.2025.102515</a>
+
+- *"Broadband Timing and Spectral Study of Accreting Millisecond X-Ray Pulsar SAX J1808.4─3658 during Its 2022 Outburst"*, Sharma, R., Sanna, A., & Sharma, P., *Monthly Notices of the Royal Astronomical Society*, 2023. DOI: <a href="https://doi.org/10.3847/1538-4357/ae3f99" target="_blank" rel="noopener noreferrer" style="color: blue; text-decoration: underline;">10.3847/1538-4357/ae3f99</a> 
+
 ## 2025
 - *"Height-Dependent Slow Magnetoacoustic Wave Amplitude and Energy Flux in Sunspot Atmospheres"*, Sanjay, Y., Krishna Prasad, S., & Rawat, P. S., *Accepted in The Astrophysical Journal*, 2025. DOI: <a href="https://ui.adsabs.harvard.edu/link_gateway/2025arXiv250415030S/doi:10.48550/arXiv.2504.15030" target="_blank" rel="noopener noreferrer" style="color: blue; text-decoration: underline;">: 
 10.48550/arXiv.2504.15030</a>
