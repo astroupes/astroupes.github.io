@@ -7,6 +7,102 @@ title: Activities
 
 ---
 
+## 🌠 June 2026: HiSTAR Summer School 2026 (Success Story)
+
+The **Himalayan School for Training in Astronomy Research (HiSTAR)** was successfully hosted from **8-12 June 2026** across **UPES, Dehradun** and the **Dolphin PG Institute**. The five-day program brought together students, faculty, and resource persons for astronomy lectures, hands-on sessions, project work, and observational training.
+
+The event concluded on a strong note, building a lively academic atmosphere and highlighting the growing collaboration between institutions working in astronomy education and research across the Himalayan region.
+
+**HiSTAR success story highlights:**
+- Successful hosting of a five-day astronomy training school with active participation from students and mentors.
+- Engaging lectures, laboratory-style sessions, and project discussions that supported practical learning.
+- Strong collaboration between UPES, Dolphin PG Institute, and invited resource persons.
+- A focused platform for building research interest and scientific exchange in astronomy and astrophysics.
+
+<div style="display: flex; gap: 24px; align-items: flex-start; margin-top: 24px; flex-wrap: wrap;">
+  <div style="flex: 0 0 30%; min-width: 250px; max-width: 360px" class="event-fact-card">
+    <strong>Event:</strong> Himalayan School for Training in Astronomy Research (HiSTAR)<br>
+    <strong>Dates:</strong> 8th - 12th June 2026<br>
+    <strong>Venue:</strong> UPES, Dehradun + Dolphin PG Institute<br>
+    <strong>Format:</strong> Talks + Hands-on + Projects + Observation<br>
+    <strong>Status:</strong> Successfully hosted
+  </div>
+  <div style="flex: 1 1 520px; max-width: 700px;">
+    <div style="width: 100%; max-width: 620px; height: 380px; margin-left: auto; margin-right: auto; position: relative;">
+      <div id="histarSlideshow" style="position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 10px;" class="slideshow-container">
+        <img src="assests/images/HiSTAR/Anupam_Bhardwaj.jpg" alt="HiSTAR success story glimpse" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #0b1220; display: block; transition: opacity 0.8s ease-in-out; opacity: 1;" id="histarSlideA">
+        <img src="" alt="HiSTAR success story glimpse" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #0b1220; display: block; transition: opacity 0.8s ease-in-out; opacity: 0;" id="histarSlideB">
+        <button onclick="prevHistarSlide()" aria-label="Previous Slide" class="slideshow-btn" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; border-radius: 50%; width: 34px; height: 34px; cursor: pointer;">&#8592;</button>
+        <button onclick="nextHistarSlide()" aria-label="Next Slide" class="slideshow-btn" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; border-radius: 50%; width: 34px; height: 34px; cursor: pointer;">&#8594;</button>
+      </div>
+      <p style="text-align: center; font-size: 0.95em; color: #555; margin-top: 8px;">Highlights from HiSTAR Summer School 2026 and the organizing team.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const histarImages = [
+    "assests/images/HiSTAR/Anupam_Bhardwaj.jpg",
+    "assests/images/HiSTAR/aasheesh_raturi.jpg",
+    "assests/images/HiSTAR/arka.jpeg",
+    "assests/images/HiSTAR/balendra.jpeg",
+    "assests/images/HiSTAR/BJoshi.jpg",
+    "assests/images/HiSTAR/hemwati.png",
+    "assests/images/HiSTAR/hum_chand.png",
+    "assests/images/HiSTAR/kaushal.png",
+    "assests/images/HiSTAR/nitesh.jpeg",
+    "assests/images/HiSTAR/nitesh_1.jpg",
+    "assests/images/HiSTAR/prince.png",
+    "assests/images/HiSTAR/rawat.png",
+    "assests/images/HiSTAR/susmita.png"
+  ];
+
+  let histarIndex = 0;
+  let histarActiveLayer = 'A';
+
+  function showHistarSlide(idx) {
+    const slideA = document.getElementById('histarSlideA');
+    const slideB = document.getElementById('histarSlideB');
+    if (!slideA || !slideB) return;
+
+    const current = histarActiveLayer === 'A' ? slideA : slideB;
+    const next = histarActiveLayer === 'A' ? slideB : slideA;
+    next.src = histarImages[idx];
+
+    const preloadImg = new Image();
+    preloadImg.src = histarImages[(idx + 1) % histarImages.length];
+
+    requestAnimationFrame(() => {
+      next.style.opacity = 1;
+      current.style.opacity = 0;
+      histarActiveLayer = histarActiveLayer === 'A' ? 'B' : 'A';
+    });
+  }
+
+  function prevHistarSlide() {
+    histarIndex = (histarIndex - 1 + histarImages.length) % histarImages.length;
+    showHistarSlide(histarIndex);
+  }
+
+  function nextHistarSlide() {
+    histarIndex = (histarIndex + 1) % histarImages.length;
+    showHistarSlide(histarIndex);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    if (histarImages.length > 1) {
+      const img = new Image();
+      img.src = histarImages[1];
+    }
+  });
+
+  setInterval(() => {
+    nextHistarSlide();
+  }, 3800);
+</script>
+
+<br>
+
 ## 🎓 February 2026: National Workshop on Data Science in Astronomy (Success Story)
 
 The **National Workshop on Data Science in Astronomy (NWDSA)** was successfully organized at **UPES, Dehradun** from **24-26 February 2026** with academic support from IUCAA and active participation from students, faculty, and early-career researchers.

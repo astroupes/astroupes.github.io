@@ -9,11 +9,34 @@ Welcome to our Astronomy & Astrophysics Gallery. Browse event-wise highlights an
 
 <div id="filter-buttons" style="text-align: center; margin-bottom: 20px;">
   <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="histar">HiSTAR 2026</button>
   <button class="filter-btn" data-filter="nwdsa">NWDSA 2026</button>
   <button class="filter-btn" data-filter="nso">Night Sky Observation 2025</button>
   <button class="filter-btn" data-filter="space-day">National Space Day 2025</button>
   <button class="filter-btn" data-filter="aries">ARIES Trip 2025</button>
   <button class="filter-btn" data-filter="lecture-series">Weekly Lecture Series</button>
+</div>
+
+---
+
+## <a href="#" class="event-header" data-section="histar">🌠 HiSTAR Summer School 2026 (Success Story)</a>
+<p class="event-note">8-12 June 2026 • Successful five-day hosting across UPES, Dehradun and Dolphin PG Institute</p>
+<div class="gallery-section" data-section="histar">
+  <div class="gallery-grid">
+    <a href="assests/images/HiSTAR/Anupam_Bhardwaj.jpg" target="_blank" class="gallery-item"><img src="assests/images/HiSTAR/Anupam_Bhardwaj.jpg" alt="HiSTAR 1" loading="lazy"></a>
+    <a href="assests/images/HiSTAR/aasheesh_raturi.jpg" target="_blank" class="gallery-item"><img src="assests/images/HiSTAR/aasheesh_raturi.jpg" alt="HiSTAR 2" loading="lazy"></a>
+    <a href="assests/images/HiSTAR/arka.jpeg" target="_blank" class="gallery-item"><img src="assests/images/HiSTAR/arka.jpeg" alt="HiSTAR 3" loading="lazy"></a>
+    <a href="assests/images/HiSTAR/balendra.jpeg" target="_blank" class="gallery-item"><img src="assests/images/HiSTAR/balendra.jpeg" alt="HiSTAR 4" loading="lazy"></a>
+    <a href="assests/images/HiSTAR/BJoshi.jpg" target="_blank" class="gallery-item"><img src="assests/images/HiSTAR/BJoshi.jpg" alt="HiSTAR 5" loading="lazy"></a>
+    <a href="assests/images/HiSTAR/hemwati.png" target="_blank" class="gallery-item"><img src="assests/images/HiSTAR/hemwati.png" alt="HiSTAR 6" loading="lazy"></a>
+    <a href="assests/images/HiSTAR/hum_chand.png" target="_blank" class="gallery-item"><img src="assests/images/HiSTAR/hum_chand.png" alt="HiSTAR 7" loading="lazy"></a>
+    <a href="assests/images/HiSTAR/kaushal.png" target="_blank" class="gallery-item"><img src="assests/images/HiSTAR/kaushal.png" alt="HiSTAR 8" loading="lazy"></a>
+    <a href="assests/images/HiSTAR/nitesh.jpeg" target="_blank" class="gallery-item"><img src="assests/images/HiSTAR/nitesh.jpeg" alt="HiSTAR 9" loading="lazy"></a>
+    <a href="assests/images/HiSTAR/nitesh_1.jpg" target="_blank" class="gallery-item"><img src="assests/images/HiSTAR/nitesh_1.jpg" alt="HiSTAR 10" loading="lazy"></a>
+    <a href="assests/images/HiSTAR/prince.png" target="_blank" class="gallery-item"><img src="assests/images/HiSTAR/prince.png" alt="HiSTAR 11" loading="lazy"></a>
+    <a href="assests/images/HiSTAR/rawat.png" target="_blank" class="gallery-item"><img src="assests/images/HiSTAR/rawat.png" alt="HiSTAR 12" loading="lazy"></a>
+    <a href="assests/images/HiSTAR/susmita.png" target="_blank" class="gallery-item"><img src="assests/images/HiSTAR/susmita.png" alt="HiSTAR 13" loading="lazy"></a>
+  </div>
 </div>
 
 ---
