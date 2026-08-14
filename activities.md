@@ -33,8 +33,8 @@ The event concluded on a strong note, building a lively academic atmosphere and 
   <div style="flex: 1 1 520px; max-width: 700px;">
     <div style="width: 100%; max-width: 620px; height: 380px; margin-left: auto; margin-right: auto; position: relative;">
       <div id="histarSlideshow" style="position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 10px;" class="slideshow-container">
-        <img src="{{ histar_first.path | relative_url }}" alt="HiSTAR success story glimpse" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #0b1220; display: block; transition: opacity 0.8s ease-in-out; opacity: 1;" id="histarSlideA">
-        <img src="" alt="HiSTAR success story glimpse" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #0b1220; display: block; transition: opacity 0.8s ease-in-out; opacity: 0;" id="histarSlideB">
+        <img src="{{ histar_first.path | relative_url }}" alt="HiSTAR success story glimpse" loading="eager" decoding="async" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #0b1220; display: block; transition: opacity 0.8s ease-in-out; opacity: 1;" id="histarSlideA">
+        <img src="" alt="HiSTAR success story glimpse" loading="lazy" decoding="async" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #0b1220; display: block; transition: opacity 0.8s ease-in-out; opacity: 0;" id="histarSlideB">
         <button onclick="prevHistarSlide()" aria-label="Previous Slide" class="slideshow-btn" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; border-radius: 50%; width: 34px; height: 34px; cursor: pointer;">&#8592;</button>
         <button onclick="nextHistarSlide()" aria-label="Next Slide" class="slideshow-btn" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; border-radius: 50%; width: 34px; height: 34px; cursor: pointer;">&#8594;</button>
       </div>
@@ -52,6 +52,7 @@ The event concluded on a strong note, building a lively academic atmosphere and 
 
   let histarIndex = 0;
   let histarActiveLayer = 'A';
+  let histarAutoplayTimer = null;
 
   function showHistarSlide(idx) {
     const slideA = document.getElementById('histarSlideA');
@@ -61,9 +62,6 @@ The event concluded on a strong note, building a lively academic atmosphere and 
     const current = histarActiveLayer === 'A' ? slideA : slideB;
     const next = histarActiveLayer === 'A' ? slideB : slideA;
     next.src = histarImages[idx];
-
-    const preloadImg = new Image();
-    preloadImg.src = histarImages[(idx + 1) % histarImages.length];
 
     requestAnimationFrame(() => {
       next.style.opacity = 1;
@@ -91,11 +89,35 @@ The event concluded on a strong note, building a lively academic atmosphere and 
     }
   });
 
-  if (histarImages.length > 1) {
-    setInterval(() => {
+  function startHistarAutoplay() {
+    if (histarAutoplayTimer || histarImages.length <= 1) return;
+    histarAutoplayTimer = setInterval(() => {
       nextHistarSlide();
     }, 3800);
   }
+
+  function stopHistarAutoplay() {
+    if (!histarAutoplayTimer) return;
+    clearInterval(histarAutoplayTimer);
+    histarAutoplayTimer = null;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const slideshow = document.getElementById('histarSlideshow');
+    if (!slideshow || histarImages.length <= 1) return;
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) startHistarAutoplay();
+          else stopHistarAutoplay();
+        });
+      }, { threshold: 0.3 });
+      observer.observe(slideshow);
+    } else {
+      startHistarAutoplay();
+    }
+  });
 </script>
 
 <br>

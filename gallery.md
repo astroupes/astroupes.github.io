@@ -26,7 +26,13 @@ Welcome to our Astronomy & Astrophysics Gallery. Browse event-wise highlights an
 <div class="gallery-section" data-section="histar">
   <div class="gallery-grid">
     {% for file in histar_gallery_files %}
-    <a href="{{ file.path | relative_url }}" target="_blank" class="gallery-item"><img src="{{ file.path | relative_url }}" alt="HiSTAR {{ forloop.index }}" loading="lazy"></a>
+    <a href="{{ file.path | relative_url }}" target="_blank" class="gallery-item">
+      {% if forloop.index <= 4 %}
+      <img src="{{ file.path | relative_url }}" alt="HiSTAR {{ forloop.index }}" loading="eager" decoding="async">
+      {% else %}
+      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="{{ file.path | relative_url }}" alt="HiSTAR {{ forloop.index }}" loading="lazy" decoding="async" class="histar-deferred">
+      {% endif %}
+    </a>
     {% endfor %}
   </div>
 </div>
@@ -242,6 +248,36 @@ Welcome to our Astronomy & Astrophysics Gallery. Browse event-wise highlights an
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    const deferredHistarImages = document.querySelectorAll('.histar-deferred');
+    if (deferredHistarImages.length) {
+      if ('IntersectionObserver' in window) {
+        const histarImageObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const img = entry.target;
+            const dataSrc = img.getAttribute('data-src');
+            if (dataSrc) {
+              img.src = dataSrc;
+              img.removeAttribute('data-src');
+            }
+            observer.unobserve(img);
+          });
+        }, {
+          rootMargin: '200px 0px'
+        });
+
+        deferredHistarImages.forEach((img) => histarImageObserver.observe(img));
+      } else {
+        deferredHistarImages.forEach((img) => {
+          const dataSrc = img.getAttribute('data-src');
+          if (dataSrc) {
+            img.src = dataSrc;
+            img.removeAttribute('data-src');
+          }
+        });
+      }
+    }
+
     const galleryItems = document.querySelectorAll('.gallery-item');
     const eventHeaders = document.querySelectorAll('.event-header');
     const modal = document.createElement('div');
